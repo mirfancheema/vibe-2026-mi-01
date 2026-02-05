@@ -105,3 +105,34 @@ h1 {
     margin-bottom: 1.5rem;
     transition: color 0.3s ease;
 }
+
+#feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#feedback-form label {
+    color: var(--text-color);
+}
+
+#feedback-form input,
+#feedback-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#feedback-form button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: white;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
