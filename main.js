@@ -41,13 +41,13 @@ class TotoGenerator extends HTMLElement {
           width: 50px;
           height: 50px;
           border-radius: 50%;
-          background-color:rgb(240, 240, 240);
+          background-color: var(--number-circle-bg);
           display: flex;
           justify-content: center;
           align-items: center;
           font-size: 1.5rem;
           font-weight: bold;
-          color: #333;
+          color: var(--number-circle-color);
           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
           animation: reveal 0.5s ease-in-out forwards;
         }
@@ -95,3 +95,24 @@ class TotoGenerator extends HTMLElement {
 }
 
 customElements.define('toto-generator', TotoGenerator);
+
+// Theme switch logic
+const themeToggle = document.getElementById('checkbox');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.body.classList.add(currentTheme);
+    if (currentTheme === 'dark-mode') {
+        themeToggle.checked = true;
+    }
+}
+
+themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light-mode');
+    }
+});
